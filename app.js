@@ -14,8 +14,17 @@ TABLE.addEventListener("click", (event) => {
 
 BTN_ROW.addEventListener("click", (event) => {
   const elem = TBODY.querySelector("tr:last-child").cloneNode(true);
-  elem.querySelectorAll("td").forEach((element)=>{
-    element.classList.remove("enabled")
+  elem.querySelectorAll("td").forEach((element) => {
+    element.classList.remove("enabled");
   });
   TBODY.append(elem);
+});
+
+BTN_COLUMN.addEventListener("click", (event) => {
+  const elems = TBODY.querySelectorAll("tr");
+  elems.forEach((row) => {
+    const elem = row.querySelector("td:last-child").cloneNode(true);
+    elem.classList.remove("enabled");
+    row.append(elem);
+  });
 });
